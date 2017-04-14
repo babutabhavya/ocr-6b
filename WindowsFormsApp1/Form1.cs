@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Bitmap bmp = new Bitmap("E:\\ocr\\ocr.jpg");
+            Bitmap bmp = new Bitmap("C:\\Users\\Onam\\Desktop\\ocr\\work\\h.jpg");
             bmp.SetResolution(90, 60);
             pictureBox1.Image = bmp;
 
@@ -28,15 +28,16 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Bitmap bmp = new Bitmap("E:\\ocr\\ocr.jpg");
+            Bitmap bmp = new Bitmap("C:\\Users\\Onam\\Desktop\\ocr\\work\\h.jpg");
             bmp.SetResolution(90, 60);
             int xval = bmp.Width;
             int yval = bmp.Height;
 
-            int i = 0, x = 0, p = 0, y= 0,m = 0;
+            int x = 0, p = 0, y= 0,m = 0;
             int[] xaxis = new int[xval];
             int[] yaxis = new int[yval];
-//            yaxis[1] = 1;
+            int[,] array = new int[xval, yval];
+            //            yaxis[1] = 1;
             int f=0, f2=0;
 
             Bitmap grayimage = ProcessImage(bmp);          
@@ -84,6 +85,7 @@ namespace WindowsFormsApp1
 
           
         }
+
         public Bitmap ProcessImage(Bitmap bmp)
         {
             Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
@@ -94,6 +96,16 @@ namespace WindowsFormsApp1
             return grayimage;
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
    
 }
